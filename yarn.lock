@@ -850,6 +850,13 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/gradient-string@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@types/gradient-string/-/gradient-string-1.1.2.tgz#b6aa618fed6afd6b888aed9cd69d2a2c8f8880c4"
+  integrity sha512-zIet2KvHr2dkOCPI5ggQQ+WJVyfBSFaqK9sNelhgDjlE2K3Fu2muuPJwu5aKM3xoWuc3WXudVEMUwI1QWhykEQ==
+  dependencies:
+    "@types/tinycolor2" "*"
+
 "@types/inquirer@^8.2.1":
   version "8.2.1"
   resolved "https://registry.yarnpkg.com/@types/inquirer/-/inquirer-8.2.1.tgz#28a139be3105a1175e205537e8ac10830e38dbf4"
@@ -907,7 +914,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/tinycolor2@^1.4.0":
+"@types/tinycolor2@*", "@types/tinycolor2@^1.4.0":
   version "1.4.3"
   resolved "https://registry.yarnpkg.com/@types/tinycolor2/-/tinycolor2-1.4.3.tgz#ed4a0901f954b126e6a914b4839c77462d56e706"
   integrity sha512-Kf1w9NE5HEgGxCRyIcRXR/ZYtDv0V8FVPtYHwLxl0O+maGX0erE77pQlD0gpP+/KByMZ87mOA79SjifhSB3PjQ==

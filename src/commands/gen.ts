@@ -1,8 +1,10 @@
 import { Command, Flags } from "@oclif/core";
 import path from "path";
+import gradient from "gradient-string";
 
 import templates from "../lib/templates.data";
 import choices from "../lib/choices.type";
+import questions from "../lib/questions";
 
 const inquirer = require("inquirer");
 const ncp = require("ncp").ncp;
@@ -26,34 +28,25 @@ export default class Gen extends Command {
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(Gen);
 
-    this.log(path.join("..", "..", "templates", "next-js"));
+    inquirer.prompt(questions).then((answers: any) => {
+      let dir: string = answers.dir;
+      let template: choices = answers.template;
 
-    inquirer
-      .prompt({
-        name: "template",
-        type: "list",
-        message: "Select a template from the list below: ",
-        choices: [
-          "Next.js w/ Chakra UI",
-          "Next.js w/ Chakra UI + Typescript",
-          "React.js w/ Chakra UI",
-          "React.js w/ Chakra + Typescript",
-        ],
-      })
-      .then((answer: any) => {
-        let ans: choices = answer.template;
-
-        ncp(
-          path.join(__dirname, "..", "..", "templates", templates[ans]),
-          path.join(__dirname, "..", "..", "output"),
-          function (err: any) {
-            if (err) {
-              console.log(err);
-            } else {
-              console.log("done sire!");
-            }
+      ncp(
+        path.join(__dirname, "..", "..", "templates", templates[template]),
+        path.join(__dirname, dir),
+        function (err: any) {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(
+              gradient.morning(
+                "Files generated successfully n installed the modules! Happy hacking!"
+              )
+            );
           }
-        );
-      });
+        }
+      );
+    });
   }
 }
