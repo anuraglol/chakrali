@@ -10,7 +10,7 @@ const ncp = require("ncp").ncp;
 ncp.limit = 16;
 
 export default class Gen extends Command {
-  static description = "describe the command here";
+  static description = "command used to generate the desired framework files";
 
   static examples = ["<%= config.bin %> <%= command.id %>"];
 

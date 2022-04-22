@@ -1,7 +1,6 @@
 {
   "name": "chakrali",
   "version": "0.0.0",
-  "description": "oclif example Hello World CLI",
   "author": "Anurag @kr-anurag",
   "bin": {
     "chli": "./bin/run"
@@ -20,6 +19,8 @@
     "@oclif/core": "^1",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "2.0.1",
+    "figchalk": "^1.0.3",
+    "gradient-string": "^2.0.1",
     "inquirer": "^8.2.2",
     "ncp": "^2.0.0"
   },

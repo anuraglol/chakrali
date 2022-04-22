@@ -1,5 +1,20 @@
 #!/usr/bin/env node
 
-const oclif = require('@oclif/core')
+const oclif = require("@oclif/core");
 
-oclif.run().then(require('@oclif/core/flush')).catch(require('@oclif/core/handle'))
+if (process.argv.slice(2).length == 0) {
+  const figchalk = require("figchalk");
+  const gradient = require("gradient-string");
+
+  console.log(figchalk.mix("🌈 chakrali", "redBright"));
+  console.log(
+    gradient.atlas(
+      "a cli tool to quickly generate starter files for chakra ui with diff frameworks"
+    )
+  );
+}
+
+oclif
+  .run()
+  .then(require("@oclif/core/flush"))
+  .catch(require("@oclif/core/handle"));
