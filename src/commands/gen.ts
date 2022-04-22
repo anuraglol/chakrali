@@ -1,5 +1,7 @@
 import { Command, Flags } from "@oclif/core";
-import path = require("path");
+import path from "path"
+
+import ora from "ora"
 
 import templates from "../lib/templates.data";
 import choices from "../lib/choices.type";
@@ -28,21 +30,20 @@ export default class Gen extends Command {
 
     this.log(path.join("..", "..", "templates", "next-js"));
 
-    let choices = [
-      "Next.js w/ Chakra UI",
-      "Next.js w/ Chakra UI + Typescript",
-      "React.js w/ Chakra UI",
-      "React.js w/ Chakra + Typescript",
-    ];
-
     inquirer
       .prompt({
         name: "template",
         type: "list",
         message: "Select a template from the list below: ",
-        choices: choices,
+        choices: [
+          "Next.js w/ Chakra UI",
+          "Next.js w/ Chakra UI + Typescript",
+          "React.js w/ Chakra UI",
+          "React.js w/ Chakra + Typescript",
+        ],
       })
       .then((answer: any) => {
+        const spinner = ora("on it sire!").start()
         let ans: choices = answer.template;
 
         ncp(

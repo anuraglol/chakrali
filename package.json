@@ -21,7 +21,8 @@
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "2.0.1",
     "inquirer": "^8.2.2",
-    "ncp": "^2.0.0"
+    "ncp": "^2.0.0",
+    "ora": "^6.1.0"
   },
   "devDependencies": {
     "@oclif/test": "^2",
