@@ -1,6 +1,8 @@
 import { Command, Flags } from "@oclif/core";
+
 import path from "path";
 import gradient from "gradient-string";
+import shell from "shelljs";
 
 import templates from "../lib/templates.data";
 import choices from "../lib/choices.type";
@@ -8,8 +10,6 @@ import questions from "../lib/questions";
 
 const inquirer = require("inquirer");
 const ncp = require("ncp").ncp;
-
-ncp.limit = 16;
 
 export default class Gen extends Command {
   static description = "command used to generate the desired framework files";
@@ -31,6 +31,7 @@ export default class Gen extends Command {
     inquirer.prompt(questions).then((answers: any) => {
       let dir: string = answers.dir;
       let template: choices = answers.template;
+      let dirPath = path.join(__dirname, dir);
 
       ncp(
         path.join(__dirname, "..", "..", "templates", templates[template]),
@@ -39,6 +40,8 @@ export default class Gen extends Command {
           if (err) {
             console.log(err);
           } else {
+            shell.cd(dirPath);
+            shell.exec("yarn");
             console.log(
               gradient.morning(
                 "Files generated successfully n installed the modules! Happy hacking!"

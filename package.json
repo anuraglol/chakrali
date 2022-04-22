@@ -22,7 +22,8 @@
     "figchalk": "^1.0.3",
     "gradient-string": "^2.0.1",
     "inquirer": "^8.2.2",
-    "ncp": "^2.0.0"
+    "ncp": "^2.0.0",
+    "shelljs": "^0.8.5"
   },
   "devDependencies": {
     "@oclif/test": "^2",
@@ -31,6 +32,7 @@
     "@types/inquirer": "^8.2.1",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.9.4",
+    "@types/shelljs": "^0.8.11",
     "chai": "^4",
     "eslint": "^7.32.0",
     "eslint-config-oclif": "^4",
