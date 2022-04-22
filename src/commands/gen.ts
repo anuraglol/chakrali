@@ -1,8 +1,6 @@
 import { Command, Flags } from "@oclif/core";
 import path from "path"
 
-import ora from "ora"
-
 import templates from "../lib/templates.data";
 import choices from "../lib/choices.type";
 
@@ -43,7 +41,6 @@ export default class Gen extends Command {
         ],
       })
       .then((answer: any) => {
-        const spinner = ora("on it sire!").start()
         let ans: choices = answer.template;
 
         ncp(
