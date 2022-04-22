@@ -1,5 +1,5 @@
 import { Command, Flags } from "@oclif/core";
-import path from "path"
+import path from "path";
 
 import templates from "../lib/templates.data";
 import choices from "../lib/choices.type";
@@ -47,7 +47,11 @@ export default class Gen extends Command {
           path.join(__dirname, "..", "..", "templates", templates[ans]),
           path.join(__dirname, "..", "..", "output"),
           function (err: any) {
-            err ? console.log(err) : null;
+            if (err) {
+              console.log(err);
+            } else {
+              console.log("done sire!");
+            }
           }
         );
       });
