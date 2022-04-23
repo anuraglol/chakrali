@@ -1,41 +1,30 @@
-import { Command, Flags } from "@oclif/core";
+import { Command } from "@oclif/core";
 
-import path from "path";
-import gradient from "gradient-string";
-import shell from "shelljs";
+import * as path from "path";
+import { cwd } from "process";
+import * as gradient from "gradient-string";
+import * as shell from "shelljs";
+import * as inquirer from "inquirer";
+import * as ncp from "ncp";
 
 import templates from "../lib/templates.data";
 import choices from "../lib/choices.type";
 import questions from "../lib/questions";
-
-const inquirer = require("inquirer");
-const ncp = require("ncp").ncp;
 
 export default class Gen extends Command {
   static description = "command used to generate the desired framework files";
 
   static examples = ["<%= config.bin %> <%= command.id %>"];
 
-  static flags = {
-    // flag with a value (-n, --name=VALUE)
-    name: Flags.string({ char: "n", description: "name to print" }),
-    // flag with no value (-f, --force)
-    force: Flags.boolean({ char: "f" }),
-  };
-
-  static args = [{ name: "file" }];
-
   public async run(): Promise<void> {
-    const { args, flags } = await this.parse(Gen);
-
     inquirer.prompt(questions).then((answers: any) => {
       let dir: string = answers.dir;
       let template: choices = answers.template;
-      let dirPath = path.join(__dirname, dir);
+      let dirPath = path.join(cwd(), dir);
 
       ncp(
-        path.join(__dirname, "..", "..", "templates", templates[template]),
-        path.join(__dirname, dir),
+        path.join("src", "templates", templates[template]),
+        dir,
         function (err: any) {
           if (err) {
             console.log(err);
