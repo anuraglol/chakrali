@@ -1,6 +1,6 @@
 {
   "name": "chakrali",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Anurag @kr-anurag",
   "bin": {
     "chli": "./bin/run"
