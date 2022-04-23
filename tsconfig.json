@@ -7,7 +7,7 @@
     "rootDir": ".",
     "strict": true,
     "target": "es2019",
-    "types": ["node", "ncp"]
+    "types": ["node"]
   },
   "include": ["src"],
   "exclude": ["src/templates"]
