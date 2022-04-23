@@ -34,7 +34,7 @@ export default class Gen extends Command {
       let dirPath = path.join(__dirname, dir);
 
       ncp(
-        path.join(__dirname, "..", "..", "templates", templates[template]),
+        path.join(__dirname, "..", "templates", templates[template]),
         path.join(__dirname, dir),
         function (err: any) {
           if (err) {

@@ -9,7 +9,6 @@
     "target": "es2019",
     "esModuleInterop": true
   },
-  "include": [
-    "src/**/*"
-, "templates"  ]
+  "include": ["src/**/*"],
+  "exclude": ["/templates/*"]
 }
