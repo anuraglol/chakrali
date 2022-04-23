@@ -5,7 +5,6 @@ import { cwd } from "process";
 import * as gradient from "gradient-string";
 import * as shell from "shelljs";
 import * as inquirer from "inquirer";
-import * as ncp from "ncp";
 
 import templates from "../lib/templates.data";
 import choices from "../lib/choices.type";
@@ -23,24 +22,18 @@ export default class Gen extends Command {
       let dirPath = path.join(cwd(), dir);
       let manager = answers.manager;
 
-      let intsallCmnd = manager === "yarn" ? "yarn" : "npm install"
+      let intsallCmnd = manager === "yarn" ? "yarn" : "npm install";
 
-      ncp(
-        path.join("src", "templates", templates[template]),
-        dir,
-        function (err: any) {
-          if (err) {
-            console.log(err);
-          } else {
-            shell.cd(dirPath);
-            shell.exec(intsallCmnd);
-            console.log(
-              gradient.morning(
-                "Files generated successfully n installed the modules! Happy hacking!"
-              )
-            );
-          }
-        }
+      shell.exec(
+        `npx github-files-fetcher --url=${templates[template]}  --out=/${dirPath}`
+      );
+      shell.cd(dirPath);
+      shell.exec(intsallCmnd);
+
+      this.log(
+        gradient.morning(
+          "Files generated successfully n installed the modules! Happy hacking!"
+        )
       );
     });
   }

@@ -22,7 +22,6 @@
     "figchalk": "^1.0.3",
     "gradient-string": "^2.0.1",
     "inquirer": "^8.2.2",
-    "ncp": "^2.0.0",
     "shelljs": "^0.8.5"
   },
   "devDependencies": {
