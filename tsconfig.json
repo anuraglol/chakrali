@@ -4,11 +4,11 @@
     "importHelpers": true,
     "module": "commonjs",
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": ".",
     "strict": true,
     "target": "es2019",
-    "esModuleInterop": true
+    "types": ["node", "ncp"]
   },
-  "include": ["src/**/*"],
-  "exclude": ["src/templates/**/*"]
+  "include": ["src"],
+  "exclude": ["src/templates"]
 }

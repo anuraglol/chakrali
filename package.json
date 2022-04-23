@@ -31,7 +31,9 @@
     "@types/gradient-string": "^1.1.2",
     "@types/inquirer": "^8.2.1",
     "@types/mocha": "^9.0.0",
+    "@types/ncp": "^2.0.5",
     "@types/node": "^16.9.4",
+    "@types/normalize-package-data": "^2.4.1",
     "@types/shelljs": "^0.8.11",
     "chai": "^4",
     "eslint": "^7.32.0",
@@ -48,7 +50,7 @@
   "oclif": {
     "bin": "chli",
     "dirname": "chli",
-    "commands": "./dist/commands",
+    "commands": "./dist/src/commands",
     "plugins": [
       "@oclif/plugin-help",
       "@oclif/plugin-plugins"
