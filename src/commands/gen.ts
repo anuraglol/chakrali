@@ -25,9 +25,9 @@ export default class Gen extends Command {
       let intsallCmnd = manager === "yarn" ? "yarn" : "npm install";
 
       shell.exec(
-        `npx github-files-fetcher --url=${templates[template]}  --out=/${dirPath}`
+        `npx github-files-fetcher --url=https://github.com/kr-anurag/chakrali/tree/main/src/templates/${templates[template]}  --out=/${dirPath}`
       );
-      shell.cd(dirPath);
+      shell.cd(`${dirPath}/${templates[template]}`);
       shell.exec(intsallCmnd);
 
       this.log(
