@@ -10,5 +10,5 @@
     "types": ["node"]
   },
   "include": ["src"],
-  "exclude": ["src/templates"]
+  "exclude": ["src/templates/**/*"]
 }

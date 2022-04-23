@@ -15,6 +15,13 @@ const questions = [
       "React.js w/ Chakra + Typescript",
     ],
   },
+  {
+    name: "manager",
+    type: "list",
+    default: "yarn",
+    message: "select your preferred pkg manager",
+    choices: ["yarn", "npm"],
+  },
 ];
 
-export default questions
+export default questions;

@@ -21,6 +21,9 @@ export default class Gen extends Command {
       let dir: string = answers.dir;
       let template: choices = answers.template;
       let dirPath = path.join(cwd(), dir);
+      let manager = answers.manager;
+
+      let intsallCmnd = manager === "yarn" ? "yarn" : "npm install"
 
       ncp(
         path.join("src", "templates", templates[template]),
@@ -30,7 +33,7 @@ export default class Gen extends Command {
             console.log(err);
           } else {
             shell.cd(dirPath);
-            shell.exec("yarn");
+            shell.exec(intsallCmnd);
             console.log(
               gradient.morning(
                 "Files generated successfully n installed the modules! Happy hacking!"
