@@ -20,7 +20,7 @@
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "2.1.0",
     "figchalk": "^1.0.3",
-    "gradient-string": "^2.0.1",
+    "gradient-string": "^2.0.2",
     "inquirer": "^8.2.2",
     "shelljs": "^0.8.5"
   },
